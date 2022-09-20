@@ -90,9 +90,9 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 		}
 
    ## Create Trip 
-       * this action used in creating trip to be ready for user reservations. 
+    * this action used in creating trip to be ready for user reservations. 
        
-	   * Request:
+	* Request:
         {
 			//trip bus id 
 			public string BusId { get; set; }
@@ -106,13 +106,13 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 			public string Currency { get; set; }
         }
 	* Response:
-       {
+       
 		 bool tripCreated
-       }
-	## Create ticket 
-      * this action used reserve seats in a trip   
+       
+   ## Create ticket 
+    * this action used reserve seats in a trip   
 	  
-      * Request:
+    * Request:
 	    {
 			//user login email 
 			public string UserEmail { get; set; }
@@ -121,9 +121,7 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 			//seats to be reserved 
 			public List<string> Seats { get; set; }
         }
-     
 	* Response:
-
 	{
 	    //user login emai
         public string UserEmail { get; set; }
@@ -143,11 +141,11 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
         public string SeatId { get; set; }
 	}
 
-	## GetFrequentTripForUser 
+   ## GetFrequentTripForUser 
 	
-       * this action used to retrive the most frequent route reserved by each user    
+    * this action used to retrive the most frequent route reserved by each user    
 	   
-       * this action does not accept any parameters 
+    * this action does not accept any parameters 
 
 	* Response:
 	{
@@ -160,7 +158,6 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 	 //created tickets 
      public List<CreateTicketSuccessViewModel> Tickets { get; set; }
     }
-
 	CreateTicketSuccessViewModel
 	{
 	    //user login email		
