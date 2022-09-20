@@ -106,9 +106,9 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 			public string Currency { get; set; }
         }
 	* Response:
-       
-		bool tripCreated
-      
+       {
+		 bool tripCreated
+       }
 	## Create ticket 
       * this action used reserve seats in a trip   
 	  
