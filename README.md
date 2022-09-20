@@ -42,14 +42,11 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
        * Request:
 	   
        {
-			[Required]
+	        //username
 			public string DisplayName { get; set; }
-			[Required]
-			[EmailAddress]
+			//user email
 			public string Email { get; set; }
-			[Required]
-			[RegularExpression("(?=^.{6,10}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\\s).*$",
-				ErrorMessage = "Passord Must have Atleast 1 Lower 1 Uppera nd 1 Special Character")]
+			//user password
 			public string Password { get; set; }
        }
 	   
