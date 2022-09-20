@@ -10,9 +10,13 @@
 
 this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with clean architecture.
    * Solution consits of 4 projects
+   
          * Api project contains all controlles and client view models
-         * Application layer holds the business logic. All the business logic has been be written in this layer.		
+		 
+         * Application layer holds the business logic. All the business logic has been be written in this layer.	
+		 
          * Domain/Core Layer contains the enterprise logic, like the entities and their specifications.		 
+		 
 		 * Infrastracture layer contais  all the database migrations and database context Objects. In this layer, we have the repositories of the domain model objects. 
    
    * Apis is secured with built-in identity server4 using JWT schema 
@@ -27,11 +31,15 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
    
    ## Patterns used
    * Unite of work 
+   
    * Generic repository 
+   
    * dependncy injection using built-in service collection of dot core
+   
    * same factory pttern idea has been used in Exception type  ```csharp InvalidTripBusVsTripRouteException.cs ```
    
 # APIs in this solution 
+
    * All Apis documented using swagger and the follwing is a qiuck dicription about how  it works.
 
    ## Register
@@ -40,18 +48,16 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
        * wrapping idintiy server create to add user in db. 
 	   
        * Request:
-	   ```csharp
        {
-	        //username
-			public string DisplayName { get; set; }
-			//user email
-			public string Email { get; set; }
-			//user password
-			public string Password { get; set; }
+	     //username
+		 public string DisplayName { get; set; }
+		 //user email
+		 public string Email { get; set; }
+		 //user password
+		 public string Password { get; set; }
        }
-	    ```
+
        * Response:
-	   ```csharp
        {
 			// user login email
 			public string Emial { get; set; }
@@ -60,22 +66,20 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 			// generated token 
 			public string Token { get; set; }
         }
-	  ```
+
    ## Login 
    
        * wrapping idintiy server login to sign user in and generate token. 
        
 	   * Request:
-	   ```csharp
        {
 			//user login email
 			public string Email { get; set; }
 			//user login password 
 			public string Password { get; set; }
        }
-       ```
+
 	* Response:
-	  ```csharp
 		{
 			// user login email
 			public string Emial { get; set; }
@@ -84,12 +88,11 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 			// generated token 
 			public string Token { get; set; }
 		}
-	   ```
+
    ## Create Trip 
        * this action used in creating trip to be ready for user reservations. 
        
 	   * Request:
-        ```csharp
         {
 			//trip bus id 
 			public string BusId { get; set; }
@@ -102,16 +105,14 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 			//trip price currency 
 			public string Currency { get; set; }
         }
-        ```
 	* Response:
-        ```csharp
+       
 		bool tripCreated
-        ```
+      
 	## Create ticket 
       * this action used reserve seats in a trip   
 	  
       * Request:
-        ```csharp
 	    {
 			//user login email 
 			public string UserEmail { get; set; }
@@ -120,10 +121,9 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 			//seats to be reserved 
 			public List<string> Seats { get; set; }
         }
-        ```
-
+     
 	* Response:
-	 ```csharp
+
 	{
 	    //user login emai
         public string UserEmail { get; set; }
@@ -134,8 +134,7 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 		//created tickets 
         public List<CreateTicketSuccessViewModel> Tickets { get; set; }
     }
-	```
-	```csharp
+
 	* CreateTicketSuccessViewModel
 	{
 	    //generated ticket id 
@@ -143,7 +142,6 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 		//Seat id 
         public string SeatId { get; set; }
 	}
-	```
 
 	## GetFrequentTripForUser 
 	
@@ -152,19 +150,17 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
        * this action does not accept any parameters 
 
 	* Response:
-```csharp
 	{
-	    //user login email
-        public string UserEmail { get; set; }
-        //user bus id
-		public string BusId { get; set; }
-        //total ticket price 
-		public string Price { get; set; }
-		//created tickets 
-        public List<CreateTicketSuccessViewModel> Tickets { get; set; }
+	 //user login email
+     public string UserEmail { get; set; }
+     //user bus id
+	 public string BusId { get; set; }
+     //total ticket price 
+	 public string Price { get; set; }
+	 //created tickets 
+     public List<CreateTicketSuccessViewModel> Tickets { get; set; }
     }
-	```
-	```csharp
+
 	CreateTicketSuccessViewModel
 	{
 	    //user login email		
@@ -172,6 +168,6 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
         //most reserved route 
 		public string FrequentBook { get; set; }
 	}
-	```
+
 
 
