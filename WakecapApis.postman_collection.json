@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "63b22be8-81a5-4bde-ac61-a9440a88cef9",
+		"name": "WakecapApis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19692070"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"ahmedeliwa@gmail.com\",\r\n  \"password\": \"Ahmed@6676\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44377/api/account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44377",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"ahmedeliwa\",\r\n  \"email\": \"ahmed.eliwa@gmail.com\",\r\n  \"password\": \"Ahmed@6676\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44377/api/account/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44377",
+							"path": [
+								"api",
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreateTicket",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFobWVkZWxpd2ExNUBnbWFpbC5jb20iLCJ1bmlxdWVfbmFtZSI6IkFobWVkRWxpd2EiLCJuYmYiOjE2NjM3ODIzOTEsImV4cCI6MTY2NDM4NzE5MSwiaWF0IjoxNjYzNzgyMzkxLCJpc3MiOiJXYWtlY2FwIiwiYXVkIjoiQWhtZWRFbGl3YSJ9.2T6jsOAM8UNhWRIZc-TxYnHIR7MsH86mMB8HPIu8lbOD2D-riBvKfsrgrJHBXquM4VkeqHV-FCmpYFr5xJPS1Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userEmail\": \"ahmedeliwa15@gmail.com\",\r\n  \"tripRoute\": \"Cairo-Alexandria\",\r\n  \"seats\": [\r\n    \"A1\",\r\n    \"A2\",\r\n    \"A3\"\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44377/api/ticket/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44377",
+					"path": [
+						"api",
+						"ticket",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateTrip",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "FrequentTrip",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
