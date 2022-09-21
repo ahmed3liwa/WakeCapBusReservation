@@ -50,7 +50,7 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
        * Request:
        {
 	     //username
-		 public string DisplayName { get; set; }
+		 public string UserName { get; set; }
 		 //user email
 		 public string Email { get; set; }
 		 //user password
@@ -59,13 +59,13 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 
        * Response:
        {
-			// user login email
-			public string Emial { get; set; }
-			//User login password
-			public string UserName { get; set; }
-			// generated token 
-			public string Token { get; set; }
-        }
+	      // user login email
+		  public string Emial { get; set; }
+		  //User login password
+		  public string UserName { get; set; }
+		  // generated token 
+		  public string Token { get; set; }
+       }
 
    ## Login 
    
@@ -73,73 +73,73 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
        
 	   * Request:
        {
-			//user login email
-			public string Email { get; set; }
-			//user login password 
-			public string Password { get; set; }
+	      //user login email
+		  public string Email { get; set; }
+		  //user login password 
+		  public string Password { get; set; }
        }
 
 	* Response:
-		{
-			// user login email
-			public string Emial { get; set; }
-			//User login password
-			public string UserName { get; set; }
-			// generated token 
-			public string Token { get; set; }
-		}
+	   {
+	      // user login email
+		  public string Emial { get; set; }
+		  //User login password
+		  public string UserName { get; set; }
+		  // generated token
+		  public string Token { get; set; }
+	   }
 
    ## Create Trip 
-    * this action used in creating trip to be ready for user reservations. 
+    * use this action in order to creating trip to be ready for user reservations. 
        
 	* Request:
-        {
-			//trip bus id 
-			public string BusId { get; set; }
-			//trip route id 
-			public string RouteId { get; set; }
-			//trip date time 
-			public DateTime DateTime { get; set; }
-			//trip ticket price 
-			public decimal TicketPrice { get; set; }
-			//trip price currency 
-			public string Currency { get; set; }
-        }
+       {
+	      //trip bus id 
+	      public string BusId { get; set; }
+	      //trip route id 
+	      public string RouteId { get; set; }
+	      //trip date time 
+	      public DateTime DateTime { get; set; }
+	      //trip ticket price 
+	      public decimal TicketPrice { get; set; }
+	      //trip price currency 
+	      public string Currency { get; set; }
+       }
 	* Response:
-       
-		 bool tripCreated
-       
+       {
+	      public string Created { get; set; }
+       }
    ## Create ticket 
     * this action used reserve seats in a trip   
 	  
     * Request:
-	    {
-			//user login email 
-			public string UserEmail { get; set; }
-			//trip route 
-			public string TripRoute { get; set; }
-			//seats to be reserved 
-			public List<string> Seats { get; set; }
-        }
+	   {
+	      //user login email 
+		  public string UserEmail { get; set; }
+		  //trip route 
+		  public string TripRoute { get; set; }
+		  //seats to be reserved 
+		  public List<string> Seats { get; set; }
+       }
 	* Response:
-	{
-	    //user login emai
-        public string UserEmail { get; set; }
-        //user bus id
-		public string BusId { get; set; }
-        //total ticket price 
-		public string Price { get; set; }
-		//created tickets 
-        public List<CreateTicketSuccessViewModel> Tickets { get; set; }
-    }
+	   {
+	      //user login emai
+		  public string UserEmail { get; set; }
+		  //user bus id
+		  public string BusId { get; set; }
+		  //total ticket price 
+		  public string Price { get; set; }
+		  //created tickets 
+		  public List<CreateTicketSuccessViewModel> Tickets { get; set; }
+       }
 
 	* CreateTicketSuccessViewModel
-	{
-	    //generated ticket id 
-        public int TicketId { get; set; }
-		//Seat id 
-        public string SeatId { get; set; }
-	}
+	   {
+	      //generated ticket id 
+		  public int TicketId { get; set; }
+		  //Seat id 
+		  public string SeatId { get; set; }
+	   }
 
    ## GetFrequentTripForUser 
 	
@@ -148,23 +148,23 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
     * this action does not accept any parameters 
 
 	* Response:
-	{
-	 //user login email
-     public string UserEmail { get; set; }
-     //user bus id
-	 public string BusId { get; set; }
-     //total ticket price 
-	 public string Price { get; set; }
-	 //created tickets 
-     public List<CreateTicketSuccessViewModel> Tickets { get; set; }
-    }
-	CreateTicketSuccessViewModel
-	{
-	    //user login email		
-	    public string Email { get; set; }
-        //most reserved route 
-		public string FrequentBook { get; set; }
-	}
+	   {
+	      //user login email
+		  public string UserEmail { get; set; }
+		  //user bus id
+		  public string BusId { get; set; }
+		  //total ticket price 
+		  public string Price { get; set; }
+		  //created tickets 
+		  public List<CreateTicketSuccessViewModel> Tickets { get; set; }
+       }
+	  CreateTicketSuccessViewModel
+	   {
+	      //user login email		
+		  public string Email { get; set; }
+		  //most reserved route 
+		  public string FrequentBook { get; set; }
+	   }
 
 
 
