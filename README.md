@@ -49,7 +49,13 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 	   
        * wrapping idintiy server create to add user in db. 
 	   
-       * Request:
+	   * Alle request view model are required.
+	   
+	   * Paasword must has at least one upper letters, lower lertter and sepial charchter.
+	   
+	   * Email must be email formatted.
+	   
+	   * Request:
        {
 	     //username
 		 public string UserName { get; set; }
