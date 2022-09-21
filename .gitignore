@@ -1,1 +1,9 @@
 README.md.bak
+.vs/
+obj/
+WakecapBusReservation.Application/bin/Debug/netcoreapp3.1/WakecapBusReservation.Application.deps.json
+WakecapBusReservation.Application/bin/
+WakecapBusReservation.Domain/bin/
+WakecapBusReservation.Test/bin/
+WakecapBusReservationAPI/bin/
+WakecapBusReservation.Infrastracture/bin/
