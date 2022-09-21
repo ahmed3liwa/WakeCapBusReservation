@@ -11,7 +11,7 @@
 this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with clean architecture.
    * Solution consits of 4 projects
    
-         * Api project contains all controlles and client view models
+         * Api project contains all controllers and client view models
 		 
          * Application layer holds the business logic. All the business logic has been be written 
 		   in this layer.	
@@ -21,9 +21,9 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 		 * Infrastracture layer contais  all the database migrations and database context Objects. 
 		   In this layer, we have the repositories of the domain model objects. 
    
-   * Apis is secured with built-in identity server4 using JWT schema 
+   * Apis are secured with built-in identity server4 using JWT schema 
    
-   * swgger interface is configured to provide full api documentation with controlles and actions request, response and http method  
+   * swgger interface is configured to provide full api documentation with controller and actions request, response and http method  
    
    * custom exception middleware has been implemented to centralize exception handling and error response
 
@@ -36,22 +36,22 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
    
    * Generic repository 
    
-   * dependncy injection using built-in service collection of dot core
+   * dependency injection using built-in service collection of dot net core
    
-   * same factory pttern idea has been used in Exception type  ```csharp InvalidTripBusVsTripRouteException.cs ```
+   * same factory pattern idea has been used in Exception type  ```csharp InvalidTripBusVsTripRouteException.cs ```
    
 # APIs in this solution 
 
-   * All Apis documented using swagger and the follwing is a qiuck dicription about how  it works.
+   * All Apis documented using swagger and the follwing is a qiuck description about how  it works.
 
    ## Register
-       * first we need to register user in order to access secured api with regitered user token.  
+       * first we need to register user in order to access secured api with registered user token.  
 	   
-       * wrapping idintiy server create to add user in db. 
+       * wrapping identity server create to add user in db. 
 	   
-	   * Alle request view model are required.
+	   * All request view model are required.
 	   
-	   * Paasword must has at least one upper letters, lower lertter and sepial charchter.
+	   * Password must has at least one upper letter, lower letter and special character.
 	   
 	   * Email must be email formatted.
 	   
@@ -77,7 +77,7 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 
    ## Login 
    
-       * wrapping idintiy server login to sign user in and generate token. 
+       * wrapping identity server login to sign user in and generate token.
        
 	   * Request:
        {
@@ -151,7 +151,7 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 
    ## GetFrequentTripForUser 
 	
-    * this action used to retrive the most frequent route reserved by each user    
+    * this action used to retrieve the most frequent route reserved by each user
 	   
     * this action does not accept any parameters 
 
