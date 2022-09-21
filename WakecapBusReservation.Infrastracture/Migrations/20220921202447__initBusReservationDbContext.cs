@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WakecapBusReservation.Infrastracture.Migrations
 {
-    public partial class _initBusReservation : Migration
+    public partial class _initBusReservationDbContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -116,19 +116,25 @@ namespace WakecapBusReservation.Infrastracture.Migrations
                     ReservationDate = table.Column<DateTime>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     UserEmail = table.Column<string>(nullable: true),
-                    SeatId = table.Column<int>(nullable: false),
-                    SeatName = table.Column<string>(nullable: false),
-                    TripId = table.Column<int>(nullable: false)
+                    SeatId = table.Column<string>(nullable: true),
+                    TripId = table.Column<int>(nullable: false),
+                    RouteId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tickets", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tickets_Seats_SeatName",
-                        column: x => x.SeatName,
+                        name: "FK_Tickets_Routes_RouteId",
+                        column: x => x.RouteId,
+                        principalTable: "Routes",
+                        principalColumn: "Name",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Tickets_Seats_SeatId",
+                        column: x => x.SeatId,
                         principalTable: "Seats",
                         principalColumn: "Name",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Tickets_Trips_TripId",
                         column: x => x.TripId,
@@ -172,9 +178,14 @@ namespace WakecapBusReservation.Infrastracture.Migrations
                 column: "PickupPointId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_SeatName",
+                name: "IX_Tickets_RouteId",
                 table: "Tickets",
-                column: "SeatName");
+                column: "RouteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_SeatId",
+                table: "Tickets",
+                column: "SeatId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_TripId",

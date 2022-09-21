@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WakecapBusReservation.Infrastracture.Migrations.Identity
 {
-    public partial class _initBusReservation : Migration
+    public partial class _initIdentityDbContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

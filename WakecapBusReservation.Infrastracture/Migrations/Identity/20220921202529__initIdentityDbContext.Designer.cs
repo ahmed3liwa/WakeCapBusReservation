@@ -10,8 +10,8 @@ using WakecapBusReservation.Infrastracture.Identity;
 namespace WakecapBusReservation.Infrastracture.Migrations.Identity
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20220919202816__initBusReservation")]
-    partial class _initBusReservation
+    [Migration("20220921202529__initIdentityDbContext")]
+    partial class _initIdentityDbContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

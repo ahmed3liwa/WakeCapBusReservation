@@ -10,8 +10,8 @@ using WakecapBusReservation.Infrastracture.Data;
 namespace WakecapBusReservation.Infrastracture.Migrations
 {
     [DbContext(typeof(BusReservationDbContext))]
-    [Migration("20220919202750__initBusReservation")]
-    partial class _initBusReservation
+    [Migration("20220921202447__initBusReservationDbContext")]
+    partial class _initBusReservationDbContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -122,11 +122,10 @@ namespace WakecapBusReservation.Infrastracture.Migrations
                     b.Property<DateTime>("ReservationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("SeatId")
-                        .HasColumnType("int");
+                    b.Property<string>("RouteId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("SeatName")
-                        .IsRequired()
+                    b.Property<string>("SeatId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("TripId")
@@ -137,7 +136,9 @@ namespace WakecapBusReservation.Infrastracture.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SeatName");
+                    b.HasIndex("RouteId");
+
+                    b.HasIndex("SeatId");
 
                     b.HasIndex("TripId");
 
@@ -207,11 +208,13 @@ namespace WakecapBusReservation.Infrastracture.Migrations
 
             modelBuilder.Entity("WakecapBusReservation.Domain.Models.Ticket", b =>
                 {
+                    b.HasOne("WakecapBusReservation.Domain.Models.Route", "Route")
+                        .WithMany("Tickets")
+                        .HasForeignKey("RouteId");
+
                     b.HasOne("WakecapBusReservation.Domain.Models.Seat", "Seat")
                         .WithMany("Tickets")
-                        .HasForeignKey("SeatName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SeatId");
 
                     b.HasOne("WakecapBusReservation.Domain.Models.Trip", "Trip")
                         .WithMany("Tickets")
