@@ -17,7 +17,8 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
 		 
          * Domain/Core Layer contains the enterprise logic, like the entities and their specifications.		 
 		 
-		 * Infrastracture layer contais  all the database migrations and database context Objects. In this layer, we have the repositories of the domain model objects. 
+		 * Infrastracture layer contais  all the database migrations and database context Objects. 
+		   In this layer, we have the repositories of the domain model objects. 
    
    * Apis is secured with built-in identity server4 using JWT schema 
    
