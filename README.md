@@ -13,7 +13,8 @@ this is a solution of WakecapBusReservation Task buit using .Net core 3.1 with c
    
          * Api project contains all controlles and client view models
 		 
-         * Application layer holds the business logic. All the business logic has been be written in this layer.	
+         * Application layer holds the business logic. All the business logic has been be written 
+		   in this layer.	
 		 
          * Domain/Core Layer contains the enterprise logic, like the entities and their specifications.		 
 		 
